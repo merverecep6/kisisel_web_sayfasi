@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merve Recep · Hobilerim</title>
+  <link rel="stylesheet" href="css/style.css" />
+  
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+</head>
+<body>
+  <div class="container">
+    <header class="nav fade-in-up">
+      <a class="brand" href="index.html" aria-label="Ana sayfaya dön">
+        <img src="assets/profile.jpg" alt="Profil fotoğrafı" />
+        <div>
+          <div class="title">Merve Recep</div>
+          <div class="subtitle">Coğrafi Bilgi Sistemleri Uzman Yardımcısı</div>
+        </div>
+      </a>
+      <nav class="navlinks">
+        <a class="" href="index.html">Ana Sayfa</a>
+        <a class="" href="hakkimda.html">Hakkımda</a>
+        <a class="active" href="hobilerim.html">Hobilerim</a>
+        <a class="" href="iletisim.html">İletişim</a>
+      </nav>
+    </header>
+
+    
+<section class="grid">
+  <div class="card pad col-12 fade-in-up delay-1">
+    <h1 style="margin:0 0 10px">Hobilerim</h1>
+    <p class="p">Tiyatro izlemeyi çok seviyorum. Aşağıdaki haritada Ankara’da gittiğim tiyatro mekânlarını ve izlediğim oyunları işaretledim.</p>
+  </div>
+
+  <div class="card pad col-8 fade-in-up delay-2">
+    <h2 style="margin:0 0 10px">Tiyatro Haritası</h2>
+    <div id="map" class="map" aria-label="Tiyatro haritası"></div>
+    <p class="p" style="margin-top:10px;font-size:13px">
+      İpucu: Markerlara tıklayıp “Detay sayfası” linkiyle ilgili oyunun sayfasına gidebilirsiniz.
+    </p>
+  </div>
+
+  <div class="card pad col-4 fade-in-up delay-3">
+    <h2 style="margin:0 0 10px">Gittiğim Oyunlar</h2>
+    <ul class="list">
+      <li>
+  <div class="k">Zacharius Usta</div>
+  <div class="v">Küçük Sahne (Küçük Tiyatro)</div>
+  <div class="v"><a href="pages/zacharius-usta.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+<li>
+  <div class="k">Meraklısı İçin Öyle Bir Hikaye</div>
+  <div class="v">Ankara DT İrfan Şahinbaş Sahnesi</div>
+  <div class="v"><a href="pages/meraklisi-icin-oyle-bir-hikaye.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+<li>
+  <div class="k">Küçük Bir Aşk Masalı</div>
+  <div class="v">Ve Sahne Panora Kulis ve Sanat Tiyatrosu</div>
+  <div class="v"><a href="pages/kucuk-bir-ask-masali.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+<li>
+  <div class="k">Burada Olan Burada Kalır</div>
+  <div class="v">ATO Congresium</div>
+  <div class="v"><a href="pages/burada-olan-burada-kalir.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+<li>
+  <div class="k">Sen de gitme Triyandafilis</div>
+  <div class="v">CSO Ada Ankara</div>
+  <div class="v"><a href="pages/sen-de-gitme-triyandafilis.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+<li>
+  <div class="k">Son İnsan</div>
+  <div class="v">Şinasi Sahnesi</div>
+  <div class="v"><a href="pages/son-insan.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+<li>
+  <div class="k">7 Kocalı Hürmüz</div>
+  <div class="v">Akün Sahne</div>
+  <div class="v"><a href="pages/7-kocali-hurmuz.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+<li>
+  <div class="k">İvan İlyiç'in Ölümü</div>
+  <div class="v">Yakın Sahne</div>
+  <div class="v"><a href="pages/ivan-ilyicin-olumu.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+<li>
+  <div class="k">Martin Eden</div>
+  <div class="v">Ankara Yeni Sahne</div>
+  <div class="v"><a href="pages/martin-eden.html" style="text-decoration:underline;font-weight:800;color:var(--text)">Detay</a></div>
+</li>
+    </ul>
+  </div>
+</section>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/theatreData.js"></script>
+<script src="js/map.js"></script>
+
+<script>
+  window.THEATRE_VISITS = THEATRE_VISITS;
+  const map = initTheatreMap("map", {center:[39.92,32.85], zoom:12});
+  addTheatreMarkers(map, THEATRE_VISITS, {fitBounds:true});
+</script>
+
+
+    <footer class="footer">
+      © 2026 Merve Recep · Bu site Web CBS Ödev-1 kapsamında hazırlanmıştır.
+    </footer>
+  </div>
+</body>
+</html>
